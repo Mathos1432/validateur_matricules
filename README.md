@@ -10,3 +10,6 @@ var options = {
   user:"user",
   pass:"password"
 }
+```
+
+Il faut aussi exécuter la commande npm install dans le dossier du projet pour ensuite exécuter npm start. La page devrait être à localhost:3000.
