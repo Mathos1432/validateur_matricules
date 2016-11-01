@@ -5,7 +5,7 @@ Pour que le projet soit fonctionnel, un fichier connection.js doit exister avec 
 
 Par exemple: 
 
-'''javascript
+```javascript
 var options = {
   user:"user",
   pass:"password"
