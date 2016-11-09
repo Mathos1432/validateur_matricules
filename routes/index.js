@@ -16,20 +16,28 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/submit-matricule', function(req, res, next) {
+	if(isNaN(req.query.matricule)){
+		return res.send({matricule:req.query.matricule, success:false, msg:"Non mais t'es tu cave esti, c'est pas un matricule ça!"})
+	}
 	Etudiant.findOne({"matricule":req.query.matricule}, function(err, data){
-		console.log(data);
 		if(err) {
 			return res.send({matricule:req.query.matricule, success:false, msg:"Tremblay sait pas coder"});
 		}  
 
-		if(data.present == "true"){
-			res.send({matricule:req.query.matricule, success:false, msg:"Déjà utilisé"});
+		if(data){
+			if(data.present == "true"){
+				res.send({matricule:req.query.matricule, success:false, msg:"Déjà utilisé"});
+			}
+			else {
+				data.present = true;
+				data.save();
+				res.send({matricule:req.query.matricule, success:true});
+			}
 		}
 		else {
-			data.present = true;
-			data.save();
-			res.send({matricule:req.query.matricule, success:true});
+			res.send({matricule:req.query.matricule, success:false, msg:"Matricule invalide"});
 		}
+		
 	});
 });
 
