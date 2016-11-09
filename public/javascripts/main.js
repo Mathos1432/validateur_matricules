@@ -4,14 +4,15 @@ $(document).ready(function(){
 		$.ajax({
 			url: "/submit-matricule",
 			data: $("form").serialize(),
-			success: function(res) {
-				if(res.success) {
-					$("#matricules").append("<li>" + res.matricule +"</li>");
+			success: function(data, text) {
+				console.log(data);
+				if(data.success) {
+					$("#matricules").append("<li>" + data.matricule +"</li>");
 					$("#error").css("background-color", "green");
-					$("#error").html("Le matricule" + res.matricule + " a été ajouté");
+					$("#error").html("Le matricule " + data.matricule + " a été ajouté");
 				} else {
 					$("#error").css("background-color", "red");
-					$("#error").html("Le matricule" + res.matricule + " n'est pas valide");
+					$("#error").html(data.matricule + ": " + data.msg);
 				}
 			},
 		});

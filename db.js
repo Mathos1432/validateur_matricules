@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-var options = require('./connection');
-
+var options = require('./connection')
 var etudiantSchema = mongoose.Schema({
-	matricule: String,
-	present: Boolean
+	matricule: Number,
+	programme:String,
+	present: String
 });
 
 var Etudiant = mongoose.model('Etudiant', etudiantSchema);
-mongoose.connect("mongodb://ds050189.mlab.com:50189/matricules_cegl_ceginfo", options)
+mongoose.connect("mongodb://ds050189.mlab.com:050189/matricules_cegl_ceginfo", options)
