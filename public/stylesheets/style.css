@@ -1,8 +1,54 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+header {
+	background-color: #34769f;
+	width:100%;
+	min-height: 150px;
+	color:#eee;
 }
 
 a {
   color: #00B7FF;
+}
+
+.container {
+	width:75%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 50px;
+}
+
+#matriculesContainer {
+	float: left;
+	width:50%;
+}
+
+#matricules {
+	font-size: 150%;
+	list-style: none;
+}
+
+form {
+	float:left;
+	width: 50% !important;
+	height: 100px;
+	text-align: center;
+}
+
+form > * {
+	font-size: 150%;
+}
+
+#error{
+	margin-top:30px;
+	clear:both;
+	font-size:150%;
 }
